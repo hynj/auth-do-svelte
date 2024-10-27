@@ -9,3 +9,14 @@ assets = { directory = ".svelte-kit/cloudflare", binding = "ASSETS" }
 # Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
 [observability]
 enabled = true
+
+
+[durable_objects]
+bindings = [
+  { name = "svelte_auth", class_name = "SvelteAuth", script_name = "auth-example" }
+]
+
+[[services]]
+binding = "PasswordHasher"
+service = "argon2"
+
